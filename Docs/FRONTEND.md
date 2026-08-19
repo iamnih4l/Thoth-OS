@@ -2,6 +2,8 @@
 
 ## 🌐 Overview
 
+**Live Dashboard:** [https://thoth-os.vercel.app/](https://thoth-os.vercel.app/)
+
 The **Capability Center** is the visual, interactive frontend for Thoth OS. Because Thoth OS is an "invisible" operating system—built entirely out of declarative Markdown schemas, rules, and cognitive modules—the Capability Center exists to **make the invisible visible**. 
 
 It provides developers, administrators, and users with a real-time, cinematic dashboard to explore the exact capabilities, agents, and architecture currently loaded into the system's kernel.

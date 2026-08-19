@@ -1,6 +1,7 @@
 <div align="center">
   <h1>🌌 Thoth OS</h1>
   <p><strong>A Cognitive Architecture and Agentic Operating System for AI Workspaces</strong></p>
+  <p><strong>🌐 Live Dashboard: <a href="https://thoth-os.vercel.app/">thoth-os.vercel.app</a></strong></p>
   <br />
 </div>
 
