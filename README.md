@@ -84,6 +84,7 @@ thoth-os/
 ├── Commands/      # Slash commands that trigger specific system behaviors (e.g., /help)
 ├── Core/          # The kernel modules (Context Manager, Task Orchestrator, etc.)
 ├── Docs/          # Internal system documentation and architecture guides
+├── frontend/      # 🌐 The Capability Center UI (Interactive React Dashboard)
 ├── Knowledge/     # Curated domain knowledge and contextual baselines
 ├── MCP/           # Integrations with external tools and API providers
 ├── Projects/      # Active workspace projects managed by the OS
@@ -92,6 +93,25 @@ thoth-os/
 ├── Templates/     # Markdown templates for structured outputs (PRDs, ADRs)
 └── Workflows/     # Multi-agent execution pipelines (e.g., startup.md, bug-fix.md)
 ```
+
+## 🌐 The Capability Center (Frontend)
+
+Because Thoth OS operates invisibly via markdown configuration and LLM context, we have built the **Capability Center**—a highly polished, cinematic web interface located in the `frontend/` directory.
+
+The Capability Center acts as the visual dashboard for the OS. It includes a build-time scraper that reads the raw Markdown files across the repository and visualizes them into an interactive UI. 
+
+**Features Include:**
+* **Interactive Architecture Graph**: See an isometric 3D mapping of the kernel, agents, and skills.
+* **Skill Explorer**: Browse, filter, and inspect the capabilities of the system.
+* **Execution Simulator**: Visually inspect the input/output schemas of how agents utilize specific skills.
+
+To run the capability center locally:
+```bash
+cd frontend
+yarn install
+yarn dev
+```
+For full details on the frontend architecture, see [Docs/FRONTEND.md](Docs/FRONTEND.md).
 
 ## 🧩 Core Schema: The Module Definition
 
