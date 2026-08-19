@@ -1,0 +1,58 @@
+---
+name: Color Grading
+description: Apply color grading to video content for visual consistency, mood enhancement, and professional polish using LUTs and manual grading.
+---
+
+# Color Grading
+
+## Purpose
+Transform raw footage into visually polished content through color correction and creative grading.
+
+## When to Activate
+- Post-production color work
+- Establishing visual style
+- Matching shots across scenes
+
+## When NOT to Activate
+- Pre-production tasks
+- Audio content
+
+## Workflow
+1. **Understand** - Analyze requirements
+2. **Research** - Gather relevant information
+3. **Plan** - Design the approach
+4. **Execute** - Produce the deliverable
+5. **Review** - Quality check and iterate
+6. **Deliver** - Finalize and document
+
+## Checklist
+- [ ] Objectives clearly defined
+- [ ] Target audience identified
+- [ ] Best practices applied
+- [ ] Quality standards met
+- [ ] Output reviewed and polished
+- [ ] Deliverable documented
+
+## Input Format
+```yaml
+task: 'Task description'
+context: 'Relevant context'
+audience: 'Target audience'
+```
+
+## Output Format
+```markdown
+## Deliverable
+[Production-ready output]
+```
+
+## Examples
+See workflow for standard usage patterns.
+
+## Edge Cases
+- Consider audience variations
+- Handle incomplete information gracefully
+- Account for platform-specific requirements
+
+## References
+- Related Thoth OS skills and agents

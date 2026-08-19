@@ -1,0 +1,58 @@
+---
+name: Tailwind CSS
+description: Use Tailwind CSS utility classes to build responsive, modern UIs rapidly with consistent design tokens.
+---
+
+# Tailwind CSS
+
+## Purpose
+Create beautiful, responsive interfaces using Tailwind CSS utility-first approach with custom design systems.
+
+## When to Activate
+- Building UI with Tailwind CSS
+- Setting up Tailwind design systems
+- Responsive design implementation
+
+## When NOT to Activate
+- Projects not using Tailwind
+- Custom CSS architectures
+
+## Workflow
+1. **Understand** - Analyze requirements and constraints
+2. **Plan** - Design the approach
+3. **Implement** - Build with best practices
+4. **Validate** - Test against requirements
+5. **Document** - Capture decisions
+6. **Review** - Quality check
+
+## Checklist
+- [ ] Requirements understood
+- [ ] Approach designed
+- [ ] Best practices applied
+- [ ] Edge cases handled
+- [ ] Tests written
+- [ ] Documentation updated
+
+## Input Format
+```yaml
+task: 'Task description'
+context: 'Project context'
+constraints: ['constraints']
+```
+
+## Output Format
+```markdown
+## Implementation
+[Production-ready output with approach, code, tests, and docs]
+```
+
+## Examples
+See workflow for standard usage patterns.
+
+## Edge Cases
+- Handle boundary conditions
+- Account for error scenarios
+- Consider scale and performance
+
+## References
+- Related Thoth OS skills and agents
