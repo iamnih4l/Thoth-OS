@@ -1,0 +1,1579 @@
+{
+  "skills": [
+    {
+      "id": "agent design",
+      "name": "Agent Design",
+      "description": "Architect and implement AI agent systems — from single agents to multi-agent orchestration — that can reason, plan, use tools, and collaborate to solve complex tasks.",
+      "category": "AI",
+      "path": "/Skills/AI/agent-design/SKILL.md",
+      "purpose": "Design AI agents that autonomously accomplish goals by breaking them into steps, using tools, reasoning about results, and adapting their approach. Covers single agents, multi-agent systems, tool use, and orchestration patterns.",
+      "workflow": "1. **Define agent goals** — What should the agent accomplish?\n2. **Design tool set** — What tools does the agent need?\n3. **Plan reasoning loop** — How does the agent think, act, observe?\n4. **Implement guardrails** — Safety limits, max iterations, fallbacks\n5. **Test with scenarios** — Diverse inputs including edge cases\n6. **Monitor and evaluate** — Track success rates and failure modes\n7. **Iterate** — Refine based on real-world performance",
+      "inputFormat": "```yaml\ngoal: \"What the agent should accomplish\"\ntools: [\"list of available tools\"]\nconstraints: [\"max iterations\", \"cost budget\", \"time limit\"]\npattern: \"ReAct | Plan-and-Execute | Multi-Agent\"\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "ai orchestration",
+      "name": "AI Orchestration",
+      "description": "Design and implement multi-model, multi-step AI pipelines that coordinate between different LLMs, tools, and services for complex tasks.",
+      "category": "AI",
+      "path": "/Skills/AI/ai-orchestration/SKILL.md",
+      "purpose": "Build production AI pipelines that chain multiple LLM calls, tool uses, and conditional logic into reliable, cost-effective workflows for complex tasks.",
+      "workflow": "1. **Map the pipeline** — Define steps, inputs, outputs, and dependencies\n2. **Select models per step** — Match model capability to step complexity\n3. **Design routing logic** — Conditional branching and fallbacks\n4. **Implement error handling** — Retries, timeouts, fallback models\n5. **Add observability** — Logging, tracing, cost tracking\n6. **Test end-to-end** — Full pipeline validation\n7. **Deploy and monitor** — Production deployment with alerting",
+      "inputFormat": null,
+      "outputFormat": null,
+      "status": "Active"
+    },
+    {
+      "id": "ai security",
+      "name": "AI Security",
+      "description": "Secure AI systems against prompt injection, data poisoning, model theft, and adversarial attacks while ensuring safe, ethical AI outputs.",
+      "category": "AI",
+      "path": "/Skills/AI/ai-security/SKILL.md",
+      "purpose": "Protect AI systems from security threats specific to machine learning and LLM deployments, including prompt injection, jailbreaking, data exfiltration, and adversarial manipulation.",
+      "workflow": "1. **Threat model** — Identify AI-specific attack vectors\n2. **Input sanitization** — Filter and validate all user inputs\n3. **Output filtering** — Scan outputs for harmful/sensitive content\n4. **Guardrails** — Implement behavior boundaries\n5. **Testing** — Red team the AI system\n6. **Monitor** — Track for anomalous behavior\n7. **Respond** — Incident response for AI-specific attacks",
+      "inputFormat": null,
+      "outputFormat": null,
+      "status": "Active"
+    },
+    {
+      "id": "context engineering",
+      "name": "Context Engineering",
+      "description": "Design and optimize the context provided to LLMs to maximize output quality while minimizing token usage and cost.",
+      "category": "AI",
+      "path": "/Skills/AI/context-engineering/SKILL.md",
+      "purpose": "Systematically design what information an LLM receives as context to produce the best possible outputs. Context engineering is the art of giving the model exactly what it needs — no more, no less.",
+      "workflow": "1. **Audit** — List all context an LLM currently receives\n2. **Classify** — Categorize as essential, helpful, or unnecessary\n3. **Prioritize** — Rank essential context by impact on output quality\n4. **Structure** — Organize context in optimal order (important first)\n5. **Compress** — Reduce token usage without losing information\n6. **Test** — Validate output quality with optimized context\n7. **Monitor** — Track context efficiency over time",
+      "inputFormat": "```yaml\ncurrent_context: \"All context currently provided to the LLM\"\ntask_type: \"The type of task the LLM performs\"\ntoken_budget: \"Maximum tokens available for context\"\nquality_issues: \"Known output quality problems\"\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "embeddings",
+      "name": "Embeddings",
+      "description": "Generate, store, and utilize vector embeddings for semantic search, similarity matching, clustering, and recommendation systems.",
+      "category": "AI",
+      "path": "/Skills/AI/embeddings/SKILL.md",
+      "purpose": "Convert text, images, or other data into dense vector representations that capture semantic meaning, enabling similarity search, clustering, and retrieval operations.",
+      "workflow": "1. **Choose embedding model** — Match model to data type and quality needs\n2. **Preprocess data** — Clean and chunk text appropriately\n3. **Generate embeddings** — Batch process for efficiency\n4. **Store vectors** — Use appropriate vector storage\n5. **Build search** — Implement similarity search with proper metrics\n6. **Evaluate** — Test retrieval quality\n7. **Optimize** — Tune for latency and cost",
+      "inputFormat": "```yaml\ndata_type: \"text | image | code | multimodal\"\nmodel: \"text-embedding-3-small | all-MiniLM-L6-v2 | voyage-code-2\"\ndimensions: 384 | 768 | 1536 | 3072\nuse_case: \"search | clustering | classification | recommendation\"\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "fine-tuning",
+      "name": "Fine-Tuning",
+      "description": "Fine-tune LLMs on custom datasets to improve task-specific performance, reduce latency, and lower costs for specialized use cases.",
+      "category": "AI",
+      "path": "/Skills/AI/fine-tuning/SKILL.md",
+      "purpose": "Customize pre-trained LLMs for specific tasks by training on curated datasets, improving quality and reducing per-query costs for high-volume, specialized applications.",
+      "workflow": "1. **Evaluate necessity** — Can prompt engineering solve this?\n2. **Prepare dataset** — Collect, clean, and format training examples\n3. **Split data** — Train (80%) / Validation (10%) / Test (10%)\n4. **Choose base model** — Select model appropriate for task\n5. **Configure training** — Set hyperparameters\n6. **Train** — Run fine-tuning job\n7. **Evaluate** — Test against held-out data and compare to base model\n8. **Deploy** — Serve the fine-tuned model\n9. **Monitor** — Track quality over time",
+      "inputFormat": "```yaml\ntask: \"Specific task to fine-tune for\"\ndataset_size: \"Number of training examples\"\nbase_model: \"gpt-4o-mini | llama-3 | mistral\"\nprovider: \"OpenAI | Together | Anyscale\"\nbudget: \"Training cost budget\"\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "llm evaluation",
+      "name": "LLM Evaluation",
+      "description": "Systematically evaluate LLM outputs for quality, accuracy, safety, and cost-effectiveness using automated and human evaluation methods.",
+      "category": "AI",
+      "path": "/Skills/AI/llm-evaluation/SKILL.md",
+      "purpose": "Measure and compare LLM performance across dimensions like accuracy, relevance, safety, and cost to make informed model selection and prompt optimization decisions.",
+      "workflow": "1. **Define metrics** — What dimensions matter for this use case?\n2. **Create eval dataset** — Representative test cases with expected outputs\n3. **Run evaluations** — Automated scoring + human review\n4. **Compare results** — Statistical analysis across models/prompts\n5. **Decide** — Select best model/prompt based on data\n6. **Monitor** — Continuous evaluation in production",
+      "inputFormat": "```yaml\nmodels: [\"gpt-4o\", \"claude-sonnet\", \"gemini-pro\"]\neval_dataset: \"Path to evaluation dataset\"\nmetrics: [\"accuracy\", \"relevance\", \"groundedness\", \"latency\", \"cost\"]\njudge_model: \"gpt-4o (for LLM-as-judge)\"\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "prompt engineering",
+      "name": "Prompt Engineering",
+      "description": "Design, optimize, and iterate on prompts for LLMs to maximize output quality, consistency, and efficiency across all task types.",
+      "category": "AI",
+      "path": "/Skills/AI/prompt-engineering/SKILL.md",
+      "purpose": "Craft effective prompts that consistently produce high-quality outputs from LLMs. This skill covers prompt structure, optimization techniques, common patterns, and evaluation methods for all prompt types — from simple queries to complex multi-step reasoning chains.\n\n---",
+      "workflow": "1. **Define the task** — What exactly should the LLM produce?\n2. **Identify the audience** — Who consumes the output?\n3. **Structure the prompt** — Role + Context + Task + Constraints + Format + Examples\n4. **Add guardrails** — Negative constraints, edge case handling\n5. **Test with examples** — Run the prompt against diverse inputs\n6. **Iterate** — Refine based on output quality\n7. **Document** — Capture the final prompt template with usage notes\n\n---",
+      "inputFormat": "```yaml\ntask: \"Description of what the prompt should accomplish\"\nmodel: \"Target LLM (GPT-4, Claude, Gemini, etc.)\"\noutput_format: \"Expected output structure\"\nconstraints: [\"constraint 1\", \"constraint 2\"]\nexamples: [\"example input/output pairs\"]\nquality_priority: \"speed | balanced | quality\"\n```\n\n---",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "rag (retrieval-augmented generation)",
+      "name": "RAG (Retrieval-Augmented Generation)",
+      "description": "Design and implement RAG pipelines that combine document retrieval with LLM generation for accurate, grounded, and up-to-date AI responses.",
+      "category": "AI",
+      "path": "/Skills/AI/rag/SKILL.md",
+      "purpose": "Build production RAG systems that retrieve relevant documents from a knowledge base and use them as context for LLM generation, producing accurate responses grounded in source material.",
+      "workflow": "1. **Document Ingestion** — Load, clean, and preprocess source documents\n2. **Chunking** — Split documents into retrievable chunks (500-1000 tokens)\n3. **Embedding** — Convert chunks to vector embeddings\n4. **Indexing** — Store embeddings in vector database\n5. **Retrieval** — Query vector DB for relevant chunks (top-k)\n6. **Augmentation** — Insert retrieved context into prompt\n7. **Generation** — LLM generates response using retrieved context\n8. **Evaluation** — Measure retrieval quality and generation accuracy",
+      "inputFormat": "```yaml\ndocuments: \"Path to document corpus\"\nembedding_model: \"text-embedding-3-small | all-MiniLM-L6-v2\"\nvector_db: \"Pinecone | Weaviate | Chroma | pgvector\"\nchunk_size: 512\nchunk_overlap: 50\ntop_k: 5\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "vector databases",
+      "name": "Vector Databases",
+      "description": "Select, configure, and optimize vector databases for storing and querying high-dimensional embeddings at scale.",
+      "category": "AI",
+      "path": "/Skills/AI/vector-databases/SKILL.md",
+      "purpose": "Implement vector storage and similarity search infrastructure for AI applications including RAG, semantic search, and recommendation systems.",
+      "workflow": "1. **Assess requirements** — Scale, latency, features needed\n2. **Select database** — Choose based on requirements\n3. **Design schema** — Collections, metadata, indexes\n4. **Configure** — Set up infrastructure and connections\n5. **Load data** — Batch upsert with metadata\n6. **Optimize** — Tune index parameters for query performance\n7. **Monitor** — Track latency, recall, and costs",
+      "inputFormat": null,
+      "outputFormat": null,
+      "status": "Active"
+    },
+    {
+      "id": "authentication",
+      "name": "Authentication",
+      "description": "Implement secure authentication systems with JWT, OAuth2, sessions, MFA, and role-based access control.",
+      "category": "Backend",
+      "path": "/Skills/Backend/authentication/SKILL.md",
+      "purpose": "Build production-grade authentication and authorization systems that are secure, scalable, and user-friendly.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "express.js",
+      "name": "Express.js",
+      "description": "Build Node.js web APIs with Express.js including middleware, routing, error handling, and security best practices.",
+      "category": "Backend",
+      "path": "/Skills/Backend/express/SKILL.md",
+      "purpose": "Create robust REST APIs using Express.js with proper middleware chains, error handling, and security configuration.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "description": "Build high-performance Python APIs with FastAPI including automatic OpenAPI docs, Pydantic validation, and async support.",
+      "category": "Backend",
+      "path": "/Skills/Backend/fastapi/SKILL.md",
+      "purpose": "Create fast, modern Python APIs with automatic documentation, type validation, and async request handling.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "firebase",
+      "name": "Firebase",
+      "description": "Build applications with Firebase including Firestore, Auth, Cloud Functions, Hosting, and Cloud Messaging.",
+      "category": "Backend",
+      "path": "/Skills/Backend/firebase-backend/SKILL.md",
+      "purpose": "Use Firebase services for mobile and web app backends including real-time database, authentication, and serverless functions.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "graphql",
+      "name": "GraphQL",
+      "description": "Design and implement GraphQL APIs with schemas, resolvers, mutations, subscriptions, and performance optimization.",
+      "category": "Backend",
+      "path": "/Skills/Backend/graphql/SKILL.md",
+      "purpose": "Build flexible GraphQL APIs that enable efficient data fetching with proper schema design and resolver implementation.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB",
+      "description": "Design and implement MongoDB databases with document modeling, indexing, aggregation pipelines, and Atlas deployment.",
+      "category": "Backend",
+      "path": "/Skills/Backend/mongodb/SKILL.md",
+      "purpose": "Build document-oriented databases with MongoDB using proper document modeling and query patterns.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "node.js",
+      "name": "Node.js",
+      "description": "Build server-side applications with Node.js including async patterns, streams, worker threads, and production deployment.",
+      "category": "Backend",
+      "path": "/Skills/Backend/nodejs/SKILL.md",
+      "purpose": "Develop scalable server-side applications using Node.js with proper error handling, async patterns, and performance optimization.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "description": "Design, optimize, and manage PostgreSQL databases including schema design, queries, indexes, and administration.",
+      "category": "Backend",
+      "path": "/Skills/Backend/postgresql/SKILL.md",
+      "purpose": "Build and maintain PostgreSQL databases with optimal schema design, query performance, and operational reliability.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "description": "Implement Redis for caching, session storage, rate limiting, pub/sub messaging, and real-time features.",
+      "category": "Backend",
+      "path": "/Skills/Backend/redis/SKILL.md",
+      "purpose": "Use Redis for high-performance caching, real-time messaging, and ephemeral data storage patterns.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "rest api design",
+      "name": "REST API Design",
+      "description": "Design RESTful APIs with proper resource modeling, HTTP methods, status codes, pagination, filtering, and versioning.",
+      "category": "Backend",
+      "path": "/Skills/Backend/rest-api/SKILL.md",
+      "purpose": "Create well-designed REST APIs that follow conventions, are easy to consume, and scale gracefully.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "description": "Build applications with Supabase including PostgreSQL, Auth, Storage, Realtime, and Edge Functions.",
+      "category": "Backend",
+      "path": "/Skills/Backend/supabase-backend/SKILL.md",
+      "purpose": "Leverage Supabase as a backend-as-a-service for rapid application development with PostgreSQL, auth, and real-time features.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "behavioral interviews",
+      "name": "Behavioral Interviews",
+      "description": "Prepare for behavioral interviews with STAR framework responses, common question patterns, and delivery coaching.",
+      "category": "Career",
+      "path": "/Skills/Career/behavioral-interviews/SKILL.md",
+      "purpose": "Master behavioral interview responses that effectively communicate experience and competencies.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "data structures and algorithms",
+      "name": "Data Structures and Algorithms",
+      "description": "Practice and master DSA problem-solving for technical interviews including arrays, trees, graphs, DP, and complexity analysis.",
+      "category": "Career",
+      "path": "/Skills/Career/dsa/SKILL.md",
+      "purpose": "Build strong algorithmic problem-solving skills for technical interviews at top tech companies.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "resume optimization",
+      "name": "Resume Optimization",
+      "description": "Optimize resumes for specific roles with keyword targeting, achievement quantification, and ATS-friendly formatting.",
+      "category": "Career",
+      "path": "/Skills/Career/resume-optimization/SKILL.md",
+      "purpose": "Create impactful resumes that pass ATS filters and communicate value to hiring managers.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "system design interviews",
+      "name": "System Design Interviews",
+      "description": "Prepare for system design interviews with structured frameworks covering requirements, estimation, architecture, and deep dives.",
+      "category": "Career",
+      "path": "/Skills/Career/system-design-interviews/SKILL.md",
+      "purpose": "Master the system design interview format used by Google, Meta, Amazon, and other top tech companies.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "blog writing",
+      "name": "Blog Writing",
+      "description": "Write compelling technical and non-technical blog posts with clear structure, engaging hooks, and SEO optimization.",
+      "category": "Content",
+      "path": "/Skills/Content/blog-writing/SKILL.md",
+      "purpose": "Create blog content that educates, engages, and ranks well in search engines.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "linkedin content",
+      "name": "LinkedIn Content",
+      "description": "Create engaging LinkedIn posts, articles, and profile content that build professional authority and generate engagement.",
+      "category": "Content",
+      "path": "/Skills/Content/linkedin/SKILL.md",
+      "purpose": "Craft LinkedIn content that establishes thought leadership, builds network, and drives professional opportunities.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "presentation design",
+      "name": "Presentation Design",
+      "description": "Design visually compelling and narratively effective presentations for conferences, pitches, and educational contexts.",
+      "category": "Content",
+      "path": "/Skills/Content/presentation-design/SKILL.md",
+      "purpose": "Create presentations that communicate ideas clearly, engage audiences, and drive action.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "seo",
+      "name": "SEO",
+      "description": "Implement search engine optimization strategies including keyword research, on-page optimization, and technical SEO.",
+      "category": "Content",
+      "path": "/Skills/Content/seo/SKILL.md",
+      "purpose": "Improve organic search visibility and traffic through systematic SEO practices.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "technical documentation authoring",
+      "name": "Technical Documentation Authoring",
+      "description": "Create comprehensive, user-friendly technical documentation including guides, API refs, tutorials, and runbooks.",
+      "category": "Content",
+      "path": "/Skills/Content/technical-documentation/SKILL.md",
+      "purpose": "Produce documentation that enables developers and users to effectively understand and use technical products.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "youtube scripts",
+      "name": "YouTube Scripts",
+      "description": "Write engaging YouTube video scripts with hooks, retention techniques, CTAs, and platform-specific optimization.",
+      "category": "Content",
+      "path": "/Skills/Content/youtube-scripts/SKILL.md",
+      "purpose": "Create YouTube content scripts that maximize viewer retention, engagement, and channel growth.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "description": "Design and deploy applications on AWS using services like EC2, Lambda, S3, RDS, CloudFront, SQS, and IAM.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/aws/SKILL.md",
+      "purpose": "Build scalable cloud applications using Amazon Web Services with proper architecture and cost optimization.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "description": "Containerize applications with Docker including Dockerfile optimization, multi-stage builds, and Docker Compose orchestration.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/docker/SKILL.md",
+      "purpose": "Package applications into containers for consistent, reproducible deployments across environments.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "gcp",
+      "name": "GCP",
+      "description": "Build and deploy on Google Cloud Platform using Cloud Run, Cloud Functions, GCS, Cloud SQL, BigQuery, and GKE.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/gcp/SKILL.md",
+      "purpose": "Leverage Google Cloud services for scalable application deployment, data analytics, and AI/ML workloads.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "github actions",
+      "name": "GitHub Actions",
+      "description": "Build CI/CD pipelines with GitHub Actions including workflows, reusable actions, matrix builds, and deployment automation.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/github-actions/SKILL.md",
+      "purpose": "Automate build, test, and deployment workflows directly within GitHub repositories.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "description": "Deploy and manage containerized applications on Kubernetes including deployments, services, ingress, and auto-scaling.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/kubernetes/SKILL.md",
+      "purpose": "Orchestrate containerized workloads at scale with Kubernetes for high availability and efficient resource utilization.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "monitoring and observability",
+      "name": "Monitoring and Observability",
+      "description": "Implement monitoring, logging, and alerting systems for production applications using Prometheus, Grafana, and cloud-native tools.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/monitoring/SKILL.md",
+      "purpose": "Build observability into applications for proactive issue detection, performance tracking, and incident response.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "description": "Define and manage cloud infrastructure as code with Terraform including modules, state management, and multi-environment deployments.",
+      "category": "DevOps",
+      "path": "/Skills/DevOps/terraform/SKILL.md",
+      "purpose": "Provision and manage cloud infrastructure declaratively with version control, reproducibility, and team collaboration.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "camera planning",
+      "name": "Camera Planning",
+      "description": "Plan camera setups, lens selection, and movement for video production to achieve desired visual storytelling.",
+      "category": "Filmmaking",
+      "path": "/Skills/Filmmaking/camera-planning/SKILL.md",
+      "purpose": "Design camera work that serves the story with appropriate technical choices for each shot.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "color grading",
+      "name": "Color Grading",
+      "description": "Apply color grading to video content for visual consistency, mood enhancement, and professional polish using LUTs and manual grading.",
+      "category": "Filmmaking",
+      "path": "/Skills/Filmmaking/color-grading/SKILL.md",
+      "purpose": "Transform raw footage into visually polished content through color correction and creative grading.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "video editing",
+      "name": "Video Editing",
+      "description": "Edit video content with proper pacing, transitions, color correction, audio mixing, and multi-format delivery.",
+      "category": "Filmmaking",
+      "path": "/Skills/Filmmaking/editing/SKILL.md",
+      "purpose": "Assemble and polish video content into compelling final deliverables optimized for target platforms.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "lighting design",
+      "name": "Lighting Design",
+      "description": "Design lighting setups for video production including three-point lighting, natural light, and creative lighting effects.",
+      "category": "Filmmaking",
+      "path": "/Skills/Filmmaking/lighting/SKILL.md",
+      "purpose": "Create professional lighting that enhances mood, clarity, and visual quality of video content.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "shot lists",
+      "name": "Shot Lists",
+      "description": "Create detailed shot lists specifying camera setups, angles, movements, and technical requirements for each scene.",
+      "category": "Filmmaking",
+      "path": "/Skills/Filmmaking/shot-lists/SKILL.md",
+      "purpose": "Organize production shooting with comprehensive shot-by-shot technical specifications.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "storyboarding",
+      "name": "Storyboarding",
+      "description": "Create visual storyboards that plan shot sequences, camera angles, and scene composition for video production.",
+      "category": "Filmmaking",
+      "path": "/Skills/Filmmaking/storyboarding/SKILL.md",
+      "purpose": "Plan video production visually with shot-by-shot sequences that guide filming and editing.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibility",
+      "description": "Implement WCAG 2.1 AA/AAA standards for inclusive web applications with proper ARIA, keyboard navigation, and screen reader support.",
+      "category": "Frontend",
+      "path": "/Skills/Frontend/accessibility/SKILL.md",
+      "purpose": "Ensure web applications are usable by everyone, including people with disabilities, meeting WCAG standards.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "next.js",
+      "name": "Next.js",
+      "description": "Build production Next.js applications with SSR, SSG, ISR, API routes, and the App Router for optimal performance and SEO.",
+      "category": "Frontend",
+      "path": "/Skills/Frontend/nextjs/SKILL.md",
+      "purpose": "Develop full-stack web applications using Next.js with server-side rendering, static generation, and modern App Router patterns.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "description": "Build modern React applications with hooks, state management, and component-driven architecture.",
+      "category": "Frontend",
+      "path": "/Skills/Frontend/react/SKILL.md",
+      "purpose": "Create performant, accessible React applications using modern patterns including hooks, context, suspense, and server components.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "tailwind css",
+      "name": "Tailwind CSS",
+      "description": "Use Tailwind CSS utility classes to build responsive, modern UIs rapidly with consistent design tokens.",
+      "category": "Frontend",
+      "path": "/Skills/Frontend/tailwind/SKILL.md",
+      "purpose": "Create beautiful, responsive interfaces using Tailwind CSS utility-first approach with custom design systems.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "description": "Write type-safe code with TypeScript including generics, utility types, module declarations, and advanced type patterns.",
+      "category": "Frontend",
+      "path": "/Skills/Frontend/typescript/SKILL.md",
+      "purpose": "Apply TypeScript's type system to catch errors at compile time, improve code documentation, and enable better tooling support.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test against requirements\n5. **Document** - Capture decisions\n6. **Review** - Quality check",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\nconstraints: ['constraints']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "flutter development",
+      "name": "Flutter Development",
+      "description": "Build cross-platform mobile apps with Flutter and Dart including state management, navigation, and platform integration.",
+      "category": "Mobile",
+      "path": "/Skills/Mobile/flutter/SKILL.md",
+      "purpose": "Develop native-quality mobile apps for iOS and Android from a single Flutter codebase.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "mobile architecture",
+      "name": "Mobile Architecture",
+      "description": "Design scalable mobile app architectures with proper separation of concerns, offline support, and platform patterns.",
+      "category": "Mobile",
+      "path": "/Skills/Mobile/mobile-architecture/SKILL.md",
+      "purpose": "Structure mobile applications with clean architecture, proper state management, and platform-appropriate patterns.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "react native",
+      "name": "React Native",
+      "description": "Build cross-platform mobile apps with React Native including native modules, navigation, and platform bridging.",
+      "category": "Mobile",
+      "path": "/Skills/Mobile/react-native/SKILL.md",
+      "purpose": "Create mobile applications using React Native with JavaScript/TypeScript for iOS and Android.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "feature prioritization",
+      "name": "Feature Prioritization",
+      "description": "Apply frameworks like RICE, ICE, MoSCoW, and Kano to systematically prioritize features based on impact and effort.",
+      "category": "Product",
+      "path": "/Skills/Product/feature-prioritization/SKILL.md",
+      "purpose": "Make data-driven prioritization decisions that maximize user value and business impact per unit of effort.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "prd writing",
+      "name": "PRD Writing",
+      "description": "Write comprehensive Product Requirements Documents that clearly communicate what to build, why, and how to measure success.",
+      "category": "Product",
+      "path": "/Skills/Product/prd-writing/SKILL.md",
+      "purpose": "Create clear, actionable PRDs that align engineering, design, and business stakeholders.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "product roadmaps",
+      "name": "Product Roadmaps",
+      "description": "Create and maintain product roadmaps that communicate priorities, timelines, and strategic direction to stakeholders.",
+      "category": "Product",
+      "path": "/Skills/Product/roadmaps/SKILL.md",
+      "purpose": "Build visual, strategic roadmaps that align teams around product priorities and timelines.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "benchmarking",
+      "name": "Benchmarking",
+      "description": "Design and execute fair, reproducible benchmarks to compare technologies, models, or approaches with statistical rigor.",
+      "category": "Research",
+      "path": "/Skills/Research/benchmarking/SKILL.md",
+      "purpose": "Create rigorous benchmarks that produce reliable, actionable comparison data for decision-making.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "experiment design",
+      "name": "Experiment Design",
+      "description": "Design rigorous experiments with clear hypotheses, controlled variables, proper sample sizes, and statistical validity.",
+      "category": "Research",
+      "path": "/Skills/Research/experiment-design/SKILL.md",
+      "purpose": "Create well-structured experiments that produce reliable, actionable results with minimal bias.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "literature review",
+      "name": "Literature Review",
+      "description": "Conduct systematic literature reviews that synthesize existing research into actionable knowledge summaries.",
+      "category": "Research",
+      "path": "/Skills/Research/literature-review/SKILL.md",
+      "purpose": "Survey existing research comprehensively to identify the state-of-the-art, gaps, and opportunities.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "paper review",
+      "name": "Paper Review",
+      "description": "Systematically analyze academic papers for methodology, findings, relevance, and applicability to current work.",
+      "category": "Research",
+      "path": "/Skills/Research/paper-review/SKILL.md",
+      "purpose": "Extract actionable insights from academic papers through structured critical analysis.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "technical writing",
+      "name": "Technical Writing",
+      "description": "Produce clear, precise technical documents including papers, reports, specifications, and documentation for expert audiences.",
+      "category": "Research",
+      "path": "/Skills/Research/technical-writing/SKILL.md",
+      "purpose": "Write technical content that communicates complex information accurately and clearly to the target audience.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "api security",
+      "name": "API Security",
+      "description": "Secure APIs with authentication, authorization, rate limiting, input validation, and transport security.",
+      "category": "Security",
+      "path": "/Skills/Security/api-security/SKILL.md",
+      "purpose": "Protect API endpoints from unauthorized access, abuse, and common attack vectors.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "owasp top 10",
+      "name": "OWASP Top 10",
+      "description": "Identify and mitigate the OWASP Top 10 web application security risks including injection, auth failures, and misconfigurations.",
+      "category": "Security",
+      "path": "/Skills/Security/owasp/SKILL.md",
+      "purpose": "Protect web applications against the most critical security risks as defined by OWASP.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "penetration testing",
+      "name": "Penetration Testing",
+      "description": "Plan and execute security penetration tests to identify vulnerabilities before attackers do, with proper scoping and reporting.",
+      "category": "Security",
+      "path": "/Skills/Security/penetration-testing/SKILL.md",
+      "purpose": "Proactively discover security vulnerabilities through systematic testing methodologies.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "secure coding",
+      "name": "Secure Coding",
+      "description": "Write code that is resistant to common vulnerabilities including injection, XSS, CSRF, and insecure deserialization.",
+      "category": "Security",
+      "path": "/Skills/Security/secure-coding/SKILL.md",
+      "purpose": "Apply secure coding practices to prevent vulnerabilities at the source code level.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "threat modeling",
+      "name": "Threat Modeling",
+      "description": "Systematically identify, prioritize, and mitigate security threats using STRIDE, DREAD, or attack tree methodologies.",
+      "category": "Security",
+      "path": "/Skills/Security/threat-modeling/SKILL.md",
+      "purpose": "Proactively identify potential security threats and design mitigations before they become vulnerabilities.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach\n3. **Implement** - Build with best practices\n4. **Validate** - Test and verify\n5. **Document** - Capture decisions and usage\n6. **Review** - Quality assurance",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Project context'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "software architecture",
+      "name": "Software Architecture",
+      "description": "Select and apply appropriate architectural patterns (monolith, microservices, event-driven, CQRS) based on project requirements and constraints.",
+      "category": "Software",
+      "path": "/Skills/Software/architecture/SKILL.md",
+      "purpose": "Define the structural organization of software systems using proven architectural patterns that optimize for the project's specific requirements.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "clean code",
+      "name": "Clean Code",
+      "description": "Write readable, maintainable, and self-documenting code following established clean code principles and language-specific conventions.",
+      "category": "Software",
+      "path": "/Skills/Software/clean-code/SKILL.md",
+      "purpose": "Produce code that is easy to read, understand, modify, and maintain by following clean code principles and conventions.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "code review",
+      "name": "Code Review",
+      "description": "Conduct thorough, constructive code reviews that improve code quality, share knowledge, and catch bugs before they reach production.",
+      "category": "Software",
+      "path": "/Skills/Software/code-review/SKILL.md",
+      "purpose": "Systematically evaluate code for correctness, security, performance, readability, and maintainability.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "debugging",
+      "name": "Debugging",
+      "description": "Systematically diagnose and fix software bugs using structured debugging methodologies, from reproduction to root cause to verified fix.",
+      "category": "Software",
+      "path": "/Skills/Software/debugging/SKILL.md",
+      "purpose": "Apply systematic debugging techniques to efficiently identify root causes and implement verified fixes.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "design patterns",
+      "name": "Design Patterns",
+      "description": "Apply proven object-oriented and functional design patterns to solve common software design problems elegantly and maintainably.",
+      "category": "Software",
+      "path": "/Skills/Software/design-patterns/SKILL.md",
+      "purpose": "Recognize common design problems and apply appropriate patterns (creational, structural, behavioral) for clean, extensible solutions.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "technical documentation",
+      "name": "Technical Documentation",
+      "description": "Create comprehensive, maintainable documentation for code, APIs, architecture, and processes that serves its target audience effectively.",
+      "category": "Software",
+      "path": "/Skills/Software/documentation/SKILL.md",
+      "purpose": "Produce documentation that helps developers understand, use, and maintain software systems.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "performance optimization",
+      "name": "Performance Optimization",
+      "description": "Profile, analyze, and optimize software performance across CPU, memory, network, and I/O dimensions with data-driven approaches.",
+      "category": "Software",
+      "path": "/Skills/Software/performance/SKILL.md",
+      "purpose": "Identify and resolve performance bottlenecks using profiling, benchmarking, and systematic optimization techniques.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "refactoring",
+      "name": "Refactoring",
+      "description": "Improve code structure and design without changing external behavior, systematically reducing technical debt and improving maintainability.",
+      "category": "Software",
+      "path": "/Skills/Software/refactoring/SKILL.md",
+      "purpose": "Restructure existing code to improve readability, reduce complexity, and enable future changes without altering functionality.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "system design",
+      "name": "System Design",
+      "description": "Design scalable, reliable, and maintainable systems by analyzing requirements, estimating capacity, and defining architecture components at every level.",
+      "category": "Software",
+      "path": "/Skills/Software/system-design/SKILL.md",
+      "purpose": "Guide the process of designing large-scale distributed systems from requirements gathering through component design, data modeling, and scalability planning.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "testing",
+      "name": "Testing",
+      "description": "Design and implement comprehensive test suites covering unit, integration, and end-to-end testing with appropriate coverage and quality.",
+      "category": "Software",
+      "path": "/Skills/Software/testing/SKILL.md",
+      "purpose": "Build reliable test suites that catch bugs early, enable confident refactoring, and document expected behavior.",
+      "workflow": "1. **Understand** - Analyze requirements and constraints\n2. **Plan** - Design the approach with appropriate patterns\n3. **Implement** - Build using best practices\n4. **Validate** - Test against requirements and edge cases\n5. **Document** - Capture decisions and usage instructions\n6. **Review** - Self-review for quality and completeness",
+      "inputFormat": "```yaml\ntask: 'Description of what needs to be accomplished'\ncontext: 'Relevant project context'\nconstraints: ['constraint 1', 'constraint 2']\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "business models",
+      "name": "Business Models",
+      "description": "Evaluate and design business models using frameworks like Business Model Canvas, Lean Canvas, and unit economics analysis.",
+      "category": "Startup",
+      "path": "/Skills/Startup/business-models/SKILL.md",
+      "purpose": "Design sustainable business models that align value creation with revenue generation.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "competitive analysis",
+      "name": "Competitive Analysis",
+      "description": "Analyze competitors systematically to identify market positioning, feature gaps, and strategic opportunities.",
+      "category": "Startup",
+      "path": "/Skills/Startup/competitive-analysis/SKILL.md",
+      "purpose": "Evaluate the competitive landscape to inform product strategy, positioning, and differentiation.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "go-to-market strategy",
+      "name": "Go-To-Market Strategy",
+      "description": "Design launch strategies that align product positioning, channel selection, pricing, and messaging for market entry.",
+      "category": "Startup",
+      "path": "/Skills/Startup/go-to-market/SKILL.md",
+      "purpose": "Create comprehensive launch plans that maximize initial traction and establish market positioning.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "pitch decks",
+      "name": "Pitch Decks",
+      "description": "Create compelling pitch decks that tell a clear story for investors, combining narrative arc with data visualization.",
+      "category": "Startup",
+      "path": "/Skills/Startup/pitch-decks/SKILL.md",
+      "purpose": "Build investor-ready pitch presentations that communicate vision, traction, and opportunity effectively.",
+      "workflow": "1. **Understand** - Analyze requirements\n2. **Research** - Gather relevant information\n3. **Plan** - Design the approach\n4. **Execute** - Produce the deliverable\n5. **Review** - Quality check and iterate\n6. **Deliver** - Finalize and document",
+      "inputFormat": "```yaml\ntask: 'Task description'\ncontext: 'Relevant context'\naudience: 'Target audience'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "csv processing",
+      "name": "CSV Processing",
+      "description": "Parse, transform, validate, and analyze CSV data including handling encoding, delimiters, and large file processing.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/csv/SKILL.md",
+      "purpose": "Process CSV data efficiently for data import/export, analysis, and transformation tasks.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "excel and spreadsheets",
+      "name": "Excel and Spreadsheets",
+      "description": "Create, analyze, and automate Excel spreadsheets including formulas, pivot tables, charts, and data validation.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/excel/SKILL.md",
+      "purpose": "Work with spreadsheet data for analysis, reporting, and business operations.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "git version control",
+      "name": "Git Version Control",
+      "description": "Use Git effectively for version control including branching strategies, merging, rebasing, and collaborative workflows.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/git/SKILL.md",
+      "purpose": "Manage code versions and collaborate effectively using Git branching, merging, and workflow patterns.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "description": "Work with JSON data including parsing, validation, transformation, schema design, and JSONPath queries.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/json/SKILL.md",
+      "purpose": "Process, validate, and transform JSON data structures for APIs, configuration, and data exchange.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "linux administration",
+      "name": "Linux Administration",
+      "description": "Navigate and administer Linux systems including file management, process control, networking, and shell scripting.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/linux/SKILL.md",
+      "purpose": "Perform system administration tasks on Linux servers and development environments.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "markdown",
+      "name": "Markdown",
+      "description": "Write well-structured Markdown documents with proper formatting, links, tables, code blocks, and GitHub Flavored Markdown extensions.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/markdown/SKILL.md",
+      "purpose": "Create clear, well-formatted documentation using Markdown syntax and best practices.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "mermaid diagrams",
+      "name": "Mermaid Diagrams",
+      "description": "Create technical diagrams using Mermaid syntax including flowcharts, sequence diagrams, ERDs, class diagrams, and Gantt charts.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/mermaid/SKILL.md",
+      "purpose": "Produce clear, maintainable diagrams as code for architecture, flows, and data relationships.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    },
+    {
+      "id": "regular expressions",
+      "name": "Regular Expressions",
+      "description": "Write, debug, and optimize regular expressions for text matching, extraction, and validation across languages.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/regex/SKILL.md",
+      "purpose": "Craft precise regular expressions for pattern matching, data extraction, and input validation.",
+      "workflow": "1. **Identify need** - What specific utility task is required?\n2. **Apply** - Use the appropriate technique or tool\n3. **Validate** - Verify correctness\n4. **Document** - Note usage for future reference",
+      "inputFormat": "```yaml\ntask: 'Utility task description'\ninput: 'Data or context to process'\n```",
+      "outputFormat": "```markdown",
+      "status": "Active"
+    }
+  ],
+  "coreModules": [
+    {
+      "id": "context-manager",
+      "name": "Context Manager",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Context Manager is responsible for maintaining, organizing, and optimizing the conversational and project context across all interactions within Thoth OS. It ensures that every agent has access to the relevant information it needs — and only what it needs — to perform its task effectively.\n\nContext is the most valuable resource in an AI-powered workspace. Poorly managed context leads to hallucinations, redundant work, contradictory outputs, and wasted tokens. The Context Manager treats context as a first-class system resource.\n\n---",
+      "responsibilities": "1. **Context Assembly** — Gather and structure relevant context before any task execution. This includes project state, conversation history, active files, user preferences, and domain-specific knowledge.\n\n2. **Context Pruning** — Remove irrelevant, outdated, or redundant information from the active context window. Prioritize recency, relevance, and importance.\n\n3. **Context Routing** — Deliver the right context to the right agent. A Frontend Engineer doesn't need database migration history. A Security Engineer doesn't need UI color palettes.\n\n4. **Context Persistence** — Coordinate with the Memory Manager to persist critical context across sessions. Identify what should be remembered long-term versus what is session-ephemeral.\n\n5. **Context Conflict Resolution** — Detect and resolve contradictions in context (e.g., conflicting requirements, outdated specs vs. current code).\n\n6. **Context Compression** — Work with the Token Optimizer to compress context when approaching token limits without losing critical information.\n\n---",
+      "path": "/Core/context-manager.md"
+    },
+    {
+      "id": "decision-engine",
+      "name": "Decision Engine",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Decision Engine provides a structured framework for making technical, strategic, and architectural decisions. It eliminates analysis paralysis by applying systematic evaluation criteria, documenting trade-offs, and producing clear recommendations with supporting rationale.\n\nEvery undocumented decision is a future mystery. Every unmade decision is a current bottleneck. The Decision Engine addresses both.\n\n---",
+      "responsibilities": "1. **Decision Framing** — Structure ambiguous choices into clear decision problems with defined options, criteria, and constraints.\n\n2. **Option Evaluation** — Systematically assess each option against weighted criteria using decision matrices, trade-off analysis, and comparative frameworks.\n\n3. **Trade-off Documentation** — Explicitly document what is gained and sacrificed with each option. No decision is free; make the cost visible.\n\n4. **Recommendation Generation** — Produce clear, defensible recommendations with supporting evidence and rationale.\n\n5. **Decision Recording** — Capture every significant decision as an Architecture Decision Record (ADR) for the Memory Manager.\n\n6. **Precedent Checking** — Verify consistency with past decisions. Flag when a new decision contradicts or conflicts with established patterns.\n\n---",
+      "path": "/Core/decision-engine.md"
+    },
+    {
+      "id": "documentation-generator",
+      "name": "Documentation Generator",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Documentation Generator automatically produces high-quality documentation for code, APIs, architectures, decisions, and processes. It eliminates the documentation gap that plagues most projects by generating docs as a natural byproduct of development rather than an afterthought.\n\nDocumentation is not optional. Undocumented code is unmaintainable code. The Documentation Generator ensures every significant artifact gets the documentation it deserves.\n\n---",
+      "responsibilities": "1. **Code Documentation** — Generate inline comments, docstrings, JSDoc/TSDoc, and function-level documentation for source code.\n\n2. **API Documentation** — Produce OpenAPI/Swagger specs, endpoint references, request/response examples, and authentication guides.\n\n3. **Architecture Documentation** — Create system diagrams (Mermaid), component overviews, data flow diagrams, and deployment topologies.\n\n4. **README Generation** — Generate project READMEs with installation, usage, configuration, and contribution instructions.\n\n5. **Decision Documentation** — Format Architecture Decision Records (ADRs) for the Decision Engine.\n\n6. **Changelog Generation** — Produce changelogs from git history, organized by version and change type.\n\n7. **Runbook Generation** — Create operational runbooks for deployment, incident response, and maintenance procedures.\n\n---",
+      "path": "/Core/documentation-generator.md"
+    },
+    {
+      "id": "memory-manager",
+      "name": "Memory Manager",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Memory Manager provides persistent, structured knowledge storage and retrieval across sessions. While the Context Manager handles in-session state, the Memory Manager ensures that critical decisions, learnings, project knowledge, and user preferences survive beyond individual conversations.\n\nWithout memory, every session starts from zero. The Memory Manager transforms Thoth OS from a stateless tool into a knowledge-accumulating system that gets smarter with every interaction.\n\n---",
+      "responsibilities": "1. **Knowledge Capture** — Identify and extract valuable information from conversations: architectural decisions, user preferences, project patterns, resolved bugs, and lessons learned.\n\n2. **Knowledge Organization** — Store memories in structured, retrievable formats organized by project, domain, type, and importance. Maintain a taxonomy that scales.\n\n3. **Knowledge Retrieval** — Surface relevant memories when needed. Use semantic similarity, keyword matching, and temporal relevance to find the right memories at the right time.\n\n4. **Knowledge Maintenance** — Detect and resolve stale, contradictory, or superseded memories. Memory rot is as dangerous as no memory at all.\n\n5. **Knowledge Indexing** — Maintain indices for fast retrieval across large knowledge bases. Support full-text search, tag-based filtering, and relationship traversal.\n\n6. **Privacy Management** — Classify memories by sensitivity. Ensure secrets, credentials, and personal data are handled appropriately and never leaked into general context.\n\n---",
+      "path": "/Core/memory-manager.md"
+    },
+    {
+      "id": "planning-engine",
+      "name": "Planning Engine",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Planning Engine transforms ambiguous goals into concrete, executable plans. It decomposes complex tasks into ordered steps, identifies dependencies, allocates resources (agents/skills), estimates effort, and produces actionable implementation plans that any agent in the system can execute.\n\nGreat execution without a plan is luck. Great planning without execution is waste. The Planning Engine ensures both work together.\n\n---",
+      "responsibilities": "1. **Goal Decomposition** — Break high-level objectives into hierarchical task trees with clear deliverables at each level.\n\n2. **Dependency Analysis** — Map dependencies between tasks. Identify critical paths, parallelizable work, and blocking dependencies.\n\n3. **Resource Allocation** — Assign the right agents and skills to each task based on expertise matching and availability.\n\n4. **Effort Estimation** — Provide time and complexity estimates for each task and the overall plan.\n\n5. **Risk Assessment** — Identify potential failure points, unknowns, and contingency plans for each risk.\n\n6. **Plan Optimization** — Minimize total execution time by maximizing parallelism while respecting dependency constraints.\n\n7. **Plan Adaptation** — Revise plans when reality diverges from expectations. Replan dynamically without losing progress.\n\n---",
+      "path": "/Core/planning-engine.md"
+    },
+    {
+      "id": "prompt-optimizer",
+      "name": "Prompt Optimizer",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Prompt Optimizer refines, structures, and enhances prompts to maximize output quality from any LLM interaction. It applies prompt engineering best practices to transform vague requests into precise, well-structured prompts that consistently produce excellent results.\n\nA well-crafted prompt is the difference between a mediocre output and an exceptional one. The Prompt Optimizer ensures every interaction with an LLM is optimized for clarity, specificity, and effectiveness.\n\n---",
+      "responsibilities": "1. **Prompt Structuring** — Organize prompts with clear role definitions, context, instructions, constraints, output format specifications, and examples.\n\n2. **Ambiguity Resolution** — Detect and resolve ambiguous language, missing constraints, and underspecified requirements in prompts.\n\n3. **Example Injection** — Add few-shot examples when they improve output quality. Select examples that demonstrate the desired format, style, and depth.\n\n4. **Constraint Specification** — Ensure all relevant constraints (length, format, style, audience, technical level) are explicitly stated.\n\n5. **Chain-of-Thought Optimization** — Implement step-by-step reasoning chains where complex logic or analysis is required.\n\n6. **Prompt Template Management** — Maintain a library of proven prompt templates for common task types.\n\n---",
+      "path": "/Core/prompt-optimizer.md"
+    },
+    {
+      "id": "quality-checker",
+      "name": "Quality Checker",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Quality Checker enforces quality standards across all outputs in Thoth OS — code, documentation, architecture designs, plans, and content. It acts as an automated code reviewer, linter, and quality gate that catches issues before they reach the user.\n\nQuality is not a phase. It's a continuous process integrated into every step. The Quality Checker makes quality a systemic property, not an individual responsibility.\n\n---",
+      "responsibilities": "1. **Code Quality Assessment** — Evaluate code for correctness, readability, maintainability, performance, and security. Apply language-specific best practices and project conventions.\n\n2. **Documentation Quality** — Verify docs are complete, accurate, well-structured, and up-to-date relative to the code they describe.\n\n3. **Architecture Quality** — Assess designs for scalability, maintainability, separation of concerns, and alignment with established patterns.\n\n4. **Output Completeness** — Verify that all requirements are addressed, edge cases are handled, and error scenarios are covered.\n\n5. **Standards Enforcement** — Apply workspace rules from AGENTS.md, project conventions, and industry best practices consistently.\n\n6. **Security Scanning** — Check for common vulnerabilities: injection flaws, exposed secrets, insecure defaults, missing validation.\n\n---",
+      "path": "/Core/quality-checker.md"
+    },
+    {
+      "id": "reflection-engine",
+      "name": "Reflection Engine",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Reflection Engine enables systematic self-evaluation of outputs, processes, and decisions. It implements metacognitive loops that review what was produced, assess its quality against defined criteria, and generate improvement recommendations. The Reflection Engine transforms Thoth OS from a one-shot system into a self-improving one.\n\n---",
+      "responsibilities": "1. **Output Evaluation** — Assess the quality, completeness, accuracy, and relevance of any generated output against task requirements.\n\n2. **Process Review** — Analyze the approach taken to complete a task. Was the right strategy chosen? Were there more efficient paths?\n\n3. **Assumption Auditing** — Surface implicit assumptions made during task execution. Challenge them. Verify them. Correct them.\n\n4. **Gap Detection** — Identify what's missing from outputs: edge cases not covered, requirements not addressed, quality standards not met.\n\n5. **Improvement Generation** — Produce specific, actionable recommendations for improving outputs and processes.\n\n6. **Learning Extraction** — Distill lessons learned from reflection cycles and send them to the Memory Manager for persistence.\n\n---",
+      "path": "/Core/reflection-engine.md"
+    },
+    {
+      "id": "task-orchestrator",
+      "name": "Task Orchestrator",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Task Orchestrator is the central dispatcher of Thoth OS. It receives tasks, determines which agents and skills are needed, manages execution order based on dependencies, handles multi-agent coordination, and ensures tasks are completed efficiently with proper handoffs between agents.\n\nWithout orchestration, agents work in isolation. With orchestration, they work as a team. The Task Orchestrator transforms a collection of agents into a coordinated system.\n\n---",
+      "responsibilities": "1. **Task Routing** — Match incoming tasks to the most appropriate agent(s) and skill(s) based on expertise, task type, and availability.\n\n2. **Dependency Management** — Identify task dependencies, sequence dependent tasks, and parallelize independent ones.\n\n3. **Multi-Agent Coordination** — Orchestrate tasks that require multiple agents. Manage handoffs, shared context, and conflict resolution.\n\n4. **Progress Tracking** — Monitor task execution status, identify blockers, and report progress.\n\n5. **Error Recovery** — Handle task failures with retry logic, fallback strategies, and escalation procedures.\n\n6. **Load Balancing** — Distribute work efficiently when multiple tasks compete for the same agent.\n\n7. **Pipeline Management** — Execute predefined workflows (startup, hackathon, deployment) as coordinated pipelines.\n\n---",
+      "path": "/Core/task-orchestrator.md"
+    },
+    {
+      "id": "token-optimizer",
+      "name": "Token Optimizer",
+      "moduleType": "Core",
+      "status": "Active",
+      "purpose": "The Token Optimizer manages the most constrained resource in AI-powered workflows: the context window. It compresses, prioritizes, and structures information to maximize the useful content within token limits while minimizing waste on redundant, irrelevant, or inefficiently formatted content.\n\nEvery wasted token is stolen capacity. The Token Optimizer ensures Thoth OS gets maximum value per token.\n\n---",
+      "responsibilities": "1. **Token Budgeting** — Allocate token budgets across system prompt, context, instructions, and response space for optimal results.\n\n2. **Content Compression** — Reduce token usage without losing critical information through summarization, deduplication, and format optimization.\n\n3. **Priority Ranking** — When content exceeds budget, rank by importance and trim the lowest-value items first.\n\n4. **Format Optimization** — Choose the most token-efficient format for each content type (tables vs prose, abbreviations, structured vs natural language).\n\n5. **Chunking Strategy** — Split large content across multiple interactions when single-pass processing exceeds context limits.\n\n6. **Usage Monitoring** — Track token consumption patterns and identify optimization opportunities.\n\n---",
+      "path": "/Core/token-optimizer.md"
+    }
+  ],
+  "agents": [
+    {
+      "id": "ats-reviewer",
+      "name": "Ats Reviewer",
+      "category": "Career",
+      "role": "The ATS Reviewer ensures resumes pass Applicant Tracking System filters. They analyze resume formatting, keyword density, section headers, and file format compatibility to maximize the chance of a resume reaching a human reviewer.\n\n---",
+      "expertise": "- ATS parsing mechanics (Workday, Greenhouse, Lever, Taleo)\n- Keyword extraction and matching algorithms\n- Resume file format optimization (PDF vs DOCX)\n- Section header standardization for ATS parsing\n- Formatting pitfalls (tables, columns, graphics, headers/footers)\n- Job description keyword analysis\n- Skills taxonomy matching\n- Boolean search optimization\n\n---",
+      "path": "/Agents/Career/ats-reviewer.md"
+    },
+    {
+      "id": "google-interview-coach",
+      "name": "Google Interview Coach",
+      "category": "Career",
+      "role": "The Google Interview Coach specializes in preparing candidates for Google and FAANG-tier technical interviews. They cover DSA (Data Structures & Algorithms), system design, behavioral (Googleyness & Leadership), and the specific interview formats and expectations of top tech companies.\n\n---",
+      "expertise": "- Google interview process and timeline\n- DSA problem-solving patterns (sliding window, two pointers, BFS/DFS, DP, etc.)\n- System design interview framework (requirements → estimation → design → deep dive)\n- Google's Googleyness & Leadership behavioral dimensions\n- LeetCode problem categorization and study plans\n- Time and space complexity analysis\n- Code readability and communication during coding interviews\n- System design at Google scale (billions of users, petabytes of data)\n- Hiring committee preparation and packet strength\n- FAANG-specific interview variations (Meta, Amazon LPs, Apple, etc.)\n\n---",
+      "path": "/Agents/Career/google-interview-coach.md"
+    },
+    {
+      "id": "interview-coach",
+      "name": "Interview Coach",
+      "category": "Career",
+      "role": "The Interview Coach prepares candidates for technical and behavioral interviews. They conduct mock interviews, provide feedback, teach frameworks for structured responses, and help candidates communicate their experience, skills, and thinking clearly under pressure.\n\n---",
+      "expertise": "- Behavioral interview frameworks (STAR, SOAR, CAR)\n- Common behavioral question patterns and preparation\n- Technical interview preparation strategies\n- System design interview coaching\n- Communication skills and presentation under pressure\n- Company research and interview customization\n- Salary negotiation coaching\n- Post-interview follow-up strategy\n- Panel and cross-functional interview preparation\n- Remote/virtual interview best practices\n\n---",
+      "path": "/Agents/Career/interview-coach.md"
+    },
+    {
+      "id": "networking-coach",
+      "name": "Networking Coach",
+      "category": "Career",
+      "role": "The Networking Coach helps build professional relationships strategically. They guide personal branding, outreach strategy, LinkedIn optimization, conference networking, and relationship maintenance. Careers are built on skills AND connections — this agent handles the connections.\n\n---",
+      "expertise": "- LinkedIn networking strategy and outreach\n- Cold outreach templates and personalization\n- Personal branding and online presence\n- Conference and event networking tactics\n- Informational interview strategy\n- Mentorship seeking and relationship building\n- Community engagement and contribution strategy\n- Referral generation and ask strategies\n- Follow-up systems and relationship CRM\n- Thought leadership and content for networking\n\n---",
+      "path": "/Agents/Career/networking-coach.md"
+    },
+    {
+      "id": "resume-reviewer",
+      "name": "Resume Reviewer",
+      "category": "Career",
+      "role": "The Resume Reviewer evaluates and optimizes resumes for maximum impact. They analyze content, structure, formatting, and keyword optimization to ensure resumes effectively communicate the candidate's value to hiring managers and pass ATS (Applicant Tracking System) filters.\n\n---",
+      "expertise": "- Resume writing best practices and modern formats\n- STAR method for achievement-based bullet points\n- Quantification of impact and achievements\n- Industry-specific resume conventions (tech, product, design)\n- Keyword optimization for target roles\n- Layout and formatting best practices\n- Career narrative and progression storytelling\n- Cover letter writing\n- LinkedIn profile optimization\n\n---",
+      "path": "/Agents/Career/resume-reviewer.md"
+    },
+    {
+      "id": "cinematographer",
+      "name": "Cinematographer",
+      "category": "Creative",
+      "role": "The Cinematographer plans and executes the visual look of video productions — camera setups, lighting design, lens selection, and camera movement. They translate the director's vision into technically achievable, visually stunning imagery.\n\n---",
+      "expertise": "- Camera operation and setup (DSLR, mirrorless, cinema cameras)\n- Lens selection and focal length psychology\n- Lighting design (three-point, natural, practical, cinematic)\n- Camera movement (dolly, gimbal, handheld, crane, slider)\n- Exposure and color temperature management\n- Depth of field and focus techniques\n- Frame composition and visual hierarchy\n- Aspect ratio selection and impact\n- Shooting for post-production (LOG profiles, RAW workflows)\n\n---",
+      "path": "/Agents/Creative/cinematographer.md"
+    },
+    {
+      "id": "director",
+      "name": "Director",
+      "category": "Creative",
+      "role": "The Director oversees the creative vision and execution of all video and multimedia projects. They coordinate the creative team, make artistic decisions, ensure narrative coherence, and drive projects from concept to final delivery with a consistent creative voice.\n\n---",
+      "expertise": "- Creative direction and vision articulation\n- Visual storytelling and narrative pacing\n- Team coordination and creative leadership\n- Genre conventions and audience expectations\n- Production planning and scheduling\n- Performance direction and tone management\n- Post-production supervision (editing, color, sound)\n- Reference gathering and mood board creation\n\n---",
+      "path": "/Agents/Creative/director.md"
+    },
+    {
+      "id": "script-writer",
+      "name": "Script Writer",
+      "category": "Creative",
+      "role": "The Script Writer crafts compelling narratives for video content, presentations, pitches, and storytelling projects. They structure stories with clear dramatic arcs, write engaging dialogue, and produce scripts that communicate ideas with emotional impact and clarity.\n\n---",
+      "expertise": "- Screenplay and script formatting\n- Story structure (three-act, hero's journey, Dan Harmon's story circle)\n- Dialogue writing and voice consistency\n- Video script writing (YouTube, explainers, ads, demos)\n- Pitch narrative construction\n- Documentary and interview scripting\n- Voice-over and narration writing\n- Hook writing and audience retention techniques\n- Tone and brand voice adaptation\n- Script timing and pacing\n\n---",
+      "path": "/Agents/Creative/script-writer.md"
+    },
+    {
+      "id": "storyboard-artist",
+      "name": "Storyboard Artist",
+      "category": "Creative",
+      "role": "The Storyboard Artist translates scripts into visual sequences — planning camera angles, compositions, transitions, and visual storytelling elements shot by shot. They create the visual blueprint that guides production.\n\n---",
+      "expertise": "- Visual storytelling and sequential art\n- Camera angle and composition planning\n- Shot type selection (wide, medium, close-up, extreme close-up)\n- Transition design (cuts, dissolves, wipes, match cuts)\n- Panel layout and visual flow\n- Character blocking and staging\n- Color and mood indication through visual notes\n- Animatic timing and pacing\n\n---",
+      "path": "/Agents/Creative/storyboard-artist.md"
+    },
+    {
+      "id": "ui-designer",
+      "name": "Ui Designer",
+      "category": "Creative",
+      "role": "The UI Designer creates beautiful, functional, and accessible user interface designs. They translate product requirements and UX research into pixel-perfect visual designs with consistent design systems, thoughtful interaction patterns, and delightful micro-animations.\n\n---",
+      "expertise": "- Visual design and layout composition\n- Design system creation and maintenance\n- Component design (buttons, forms, cards, modals, navigation)\n- Color theory and palette design\n- Typography selection and hierarchy\n- Iconography and illustration\n- Responsive design across breakpoints\n- Micro-interaction and animation design\n- Dark mode and theme design\n- Figma and design tool proficiency\n- Design token specification\n- Handoff documentation for developers\n\n---",
+      "path": "/Agents/Creative/ui-designer.md"
+    },
+    {
+      "id": "ux-researcher",
+      "name": "Ux Researcher",
+      "category": "Creative",
+      "role": "The UX Researcher uncovers user behaviors, needs, and pain points through systematic research methods. They design studies, analyze findings, and translate insights into actionable design and product recommendations that improve user experience.\n\n---",
+      "expertise": "- Usability testing (moderated, unmoderated, remote)\n- User interview design and facilitation\n- Survey design and analysis\n- Heuristic evaluation (Nielsen's 10 heuristics)\n- Card sorting and information architecture testing\n- A/B test design and interpretation\n- Accessibility auditing\n- Competitive UX analysis\n- Analytics-driven UX insights (heatmaps, session recordings)\n- Research synthesis and presentation\n\n---",
+      "path": "/Agents/Creative/ux-researcher.md"
+    },
+    {
+      "id": "video-editor",
+      "name": "Video Editor",
+      "category": "Creative",
+      "role": "The Video Editor assembles raw footage, audio, and graphics into polished final deliverables. They shape pacing, rhythm, emotional impact, and narrative flow through editing decisions, ensuring every cut serves the story.\n\n---",
+      "expertise": "- Non-linear editing (DaVinci Resolve, Premiere Pro, Final Cut Pro)\n- Pacing and rhythm in editorial storytelling\n- Audio editing and mixing basics\n- Motion graphics and title design\n- Color correction and grading fundamentals\n- Transition design and execution\n- Multi-format delivery (social, web, broadcast)\n- Export settings and codec optimization\n- B-roll selection and cutaway strategy\n- Music selection and sound design direction\n\n---",
+      "path": "/Agents/Creative/video-editor.md"
+    },
+    {
+      "id": "ai-engineer",
+      "name": "Ai Engineer",
+      "category": "Engineering",
+      "role": "The AI Engineer builds production AI systems — from prompt engineering and RAG pipelines to agent architectures and LLM integrations. They bridge the gap between AI research and production applications, ensuring AI features are reliable, cost-effective, and deliver real user value.\n\n---",
+      "expertise": "- LLM integration (OpenAI, Anthropic, Google, open-source models)\n- Prompt engineering and optimization\n- RAG (Retrieval-Augmented Generation) pipeline design\n- Agent and multi-agent system architecture\n- Vector databases (Pinecone, Weaviate, Chroma, pgvector)\n- Embedding models and semantic search\n- LLM evaluation and benchmarking\n- Context engineering and token optimization\n- Guardrails, safety, and content filtering\n- Streaming responses and real-time AI features\n- Cost optimization for AI API usage\n- Fine-tuning and model customization\n- LangChain, LlamaIndex, Vercel AI SDK\n\n---",
+      "path": "/Agents/Engineering/ai-engineer.md"
+    },
+    {
+      "id": "backend-engineer",
+      "name": "Backend Engineer",
+      "category": "Engineering",
+      "role": "The Backend Engineer builds server-side systems — APIs, databases, business logic, authentication, and integrations. They own the data layer, service layer, and everything between the frontend and the infrastructure. Their code is the engine that powers the product.\n\n---",
+      "expertise": "- Server-side development (Node.js, Python, Go)\n- API design and implementation (REST, GraphQL, gRPC)\n- Database design and optimization (PostgreSQL, MongoDB, Redis)\n- Authentication and authorization (JWT, OAuth2, RBAC)\n- Message queues and event-driven architectures (RabbitMQ, Kafka, Redis Pub/Sub)\n- ORM and query optimization (Prisma, Drizzle, SQLAlchemy, TypeORM)\n- Caching strategies (Redis, in-memory, CDN)\n- Background job processing\n- File storage and CDN integration (S3, Cloudflare R2)\n- WebSocket and real-time communication\n- Rate limiting and API throttling\n- Error handling and logging best practices\n\n---",
+      "path": "/Agents/Engineering/backend-engineer.md"
+    },
+    {
+      "id": "devops-engineer",
+      "name": "Devops Engineer",
+      "category": "Engineering",
+      "role": "The DevOps Engineer owns the infrastructure, CI/CD pipelines, deployment processes, monitoring, and operational reliability of all systems. They bridge development and operations, ensuring code flows smoothly from commit to production and systems run reliably at scale.\n\n---",
+      "expertise": "- Container orchestration (Docker, Kubernetes, Docker Compose)\n- CI/CD pipeline design (GitHub Actions, GitLab CI, Jenkins)\n- Infrastructure as Code (Terraform, Pulumi, CloudFormation)\n- Cloud platforms (AWS, GCP, Azure, Vercel, Railway, Fly.io)\n- Monitoring and observability (Grafana, Prometheus, Datadog, CloudWatch)\n- Log aggregation (ELK Stack, Loki, CloudWatch Logs)\n- Networking (load balancers, DNS, CDN, TLS/SSL)\n- Database administration and backup strategies\n- Secret management (Vault, AWS Secrets Manager, environment variables)\n- Incident response and runbook creation\n- Cost optimization for cloud infrastructure\n- Performance tuning and capacity planning\n\n---",
+      "path": "/Agents/Engineering/devops-engineer.md"
+    },
+    {
+      "id": "flutter-engineer",
+      "name": "Flutter Engineer",
+      "category": "Engineering",
+      "role": "The Flutter Engineer builds cross-platform mobile applications using Flutter and Dart. They deliver native-quality experiences on iOS and Android from a single codebase, handling state management, platform-specific integrations, performance optimization, and app store deployment.\n\n---",
+      "expertise": "- Flutter framework and Dart programming language\n- State management (Riverpod, Bloc, Provider, GetX)\n- Widget architecture and custom widget creation\n- Platform channels for native iOS/Android integration\n- Navigation (GoRouter, AutoRoute)\n- Local storage (Hive, SharedPreferences, SQLite/Drift)\n- REST and GraphQL API integration (Dio, http, graphql_flutter)\n- Firebase integration (Auth, Firestore, Cloud Messaging, Analytics)\n- Supabase integration for backend services\n- Animation and custom painters\n- Responsive and adaptive design across device sizes\n- App store submission (iOS App Store, Google Play)\n- Testing (unit, widget, integration tests)\n- Performance profiling (DevTools, timeline, memory)\n\n---",
+      "path": "/Agents/Engineering/flutter-engineer.md"
+    },
+    {
+      "id": "frontend-engineer",
+      "name": "Frontend Engineer",
+      "category": "Engineering",
+      "role": "The Frontend Engineer builds user-facing interfaces that are performant, accessible, responsive, and delightful. They own the presentation layer — components, state management, routing, API integration, and the user experience in the browser or client application.\n\n---",
+      "expertise": "- React, Next.js, and modern frontend frameworks\n- TypeScript for type-safe frontend development\n- State management (Zustand, Jotai, React Query, Redux Toolkit)\n- CSS architecture (Tailwind, CSS Modules, Styled Components)\n- Responsive design and mobile-first development\n- Accessibility (WCAG 2.1 AA, ARIA, keyboard navigation)\n- Performance optimization (Core Web Vitals, lazy loading, code splitting)\n- Testing (Jest, React Testing Library, Playwright, Cypress)\n- Design system implementation (component libraries, design tokens)\n- Animation and micro-interactions (Framer Motion, CSS animations)\n- SEO optimization for client-rendered applications\n- Progressive Web App (PWA) capabilities\n\n---",
+      "path": "/Agents/Engineering/frontend-engineer.md"
+    },
+    {
+      "id": "ml-engineer",
+      "name": "Ml Engineer",
+      "category": "Engineering",
+      "role": "The ML Engineer designs, trains, evaluates, and deploys machine learning models. They handle the full ML lifecycle from data preparation through model serving, focusing on building models that are accurate, efficient, and production-ready. While the AI Engineer focuses on LLM integration, the ML Engineer owns custom model development.\n\n---",
+      "expertise": "- Classical ML (scikit-learn, XGBoost, LightGBM)\n- Deep learning (PyTorch, TensorFlow, JAX)\n- NLP (transformers, tokenizers, text classification, NER)\n- Computer vision (CNNs, object detection, image classification)\n- Feature engineering and data preprocessing\n- Model evaluation and validation strategies\n- Hyperparameter tuning (Optuna, Ray Tune)\n- MLOps and model serving (MLflow, BentoML, TorchServe)\n- Experiment tracking and reproducibility\n- Model compression and optimization (quantization, pruning, distillation)\n- Data labeling and annotation strategies\n- Transfer learning and domain adaptation\n\n---",
+      "path": "/Agents/Engineering/ml-engineer.md"
+    },
+    {
+      "id": "principal-engineer",
+      "name": "Principal Engineer",
+      "category": "Engineering",
+      "role": "The Principal Engineer is the most senior technical individual contributor. They own the most complex technical challenges, set engineering standards, mentor other engineers, and make critical implementation decisions. They operate across team boundaries to ensure system-wide quality, consistency, and technical excellence.\n\n---",
+      "expertise": "- Deep full-stack engineering across multiple languages and paradigms\n- Distributed systems design and failure mode analysis\n- Performance engineering and optimization at scale\n- Code architecture and design pattern mastery\n- Cross-cutting concerns (logging, monitoring, security, caching)\n- Technical mentorship and code review leadership\n- Legacy system modernization and migration strategies\n- Root cause analysis and complex debugging\n- API design and contract-first development\n- Data modeling and database optimization\n\n---",
+      "path": "/Agents/Engineering/principal-engineer.md"
+    },
+    {
+      "id": "qa-engineer",
+      "name": "Qa Engineer",
+      "category": "Engineering",
+      "role": "The QA Engineer ensures product quality through systematic testing strategies. They design test plans, write automated tests, identify edge cases, verify bug fixes, and maintain quality gates that prevent defective code from reaching users. Quality is everyone's job, but QA makes it systematic.\n\n---",
+      "expertise": "- Test strategy design (unit, integration, E2E, smoke, regression)\n- Test automation frameworks (Jest, Vitest, Pytest, Playwright, Cypress)\n- API testing (Postman, REST Client, automated contract testing)\n- Performance testing (k6, Artillery, JMeter)\n- Mobile testing (Flutter integration tests, device testing)\n- Test-Driven Development (TDD) and Behavior-Driven Development (BDD)\n- Edge case identification and boundary value analysis\n- Test data management and fixtures\n- CI integration for automated test execution\n- Accessibility testing (axe, Lighthouse)\n- Cross-browser and cross-device testing\n- Bug reporting and reproduction steps\n\n---",
+      "path": "/Agents/Engineering/qa-engineer.md"
+    },
+    {
+      "id": "security-engineer",
+      "name": "Security Engineer",
+      "category": "Engineering",
+      "role": "The Security Engineer identifies, prevents, and mitigates security vulnerabilities across all systems. They conduct security reviews, implement defensive controls, perform threat modeling, and ensure the organization's security posture meets industry standards. Security is not a feature — it's a property of the entire system.\n\n---",
+      "expertise": "- OWASP Top 10 and common vulnerability patterns\n- Authentication and authorization (OAuth2, OIDC, SAML, RBAC, ABAC)\n- Cryptography (hashing, encryption, key management, TLS)\n- Input validation and output encoding\n- SQL injection, XSS, CSRF, SSRF prevention\n- API security (rate limiting, API keys, JWT security)\n- Dependency vulnerability scanning (Snyk, npm audit, Dependabot)\n- Penetration testing methodology\n- Security headers and CSP configuration\n- Secure coding practices across languages\n- Compliance frameworks (SOC 2, GDPR, HIPAA basics)\n- Incident response and forensics\n\n---",
+      "path": "/Agents/Engineering/security-engineer.md"
+    },
+    {
+      "id": "software-architect",
+      "name": "Software Architect",
+      "category": "Engineering",
+      "role": "The Software Architect designs system architectures that balance performance, scalability, maintainability, and cost. They define the structural blueprint of applications — how components interact, how data flows, how systems scale, and how they evolve over time. The Architect thinks in systems, not in features.\n\n---",
+      "expertise": "- Architectural patterns (microservices, monolith, modular monolith, event-driven, CQRS)\n- System design at scale (millions of users, TB-scale data)\n- Data architecture (relational, document, graph, time-series, data lakes)\n- API architecture (REST, GraphQL, gRPC, WebSocket)\n- Cloud-native architecture (containers, serverless, managed services)\n- Domain-Driven Design (DDD)\n- Event sourcing and message-driven architectures\n- Caching strategies and CDN architecture\n- Database sharding, replication, and partitioning\n- C4 model and architectural documentation\n\n---",
+      "path": "/Agents/Engineering/software-architect.md"
+    },
+    {
+      "id": "ceo",
+      "name": "Ceo",
+      "category": "Executive",
+      "role": "The CEO Agent serves as the strategic visionary and ultimate decision-maker for the project. It provides high-level direction, prioritizes initiatives based on business impact, and ensures all work aligns with the overarching mission. The CEO thinks in terms of outcomes, users, and market positioning — not implementation details.\n\n---",
+      "expertise": "- Vision articulation and strategic planning\n- Business model design and validation\n- Market analysis and competitive positioning\n- Resource allocation and prioritization\n- Stakeholder communication\n- Risk assessment at the business level\n- Go-to-market strategy\n- Fundraising narrative and pitch refinement\n\n---",
+      "path": "/Agents/Executive/ceo.md"
+    },
+    {
+      "id": "chief-designer",
+      "name": "Chief Designer",
+      "category": "Executive",
+      "role": "The Chief Designer Agent leads design strategy, establishes design systems, ensures visual and experiential consistency, and champions user-centered design across all products. It sets the aesthetic and functional bar for every interface, interaction, and communication that reaches the user.\n\n---",
+      "expertise": "- Design systems architecture and governance\n- Visual design language and brand identity\n- Interaction design patterns and microinteractions\n- Design thinking and human-centered design processes\n- Accessibility standards (WCAG 2.1 AA/AAA)\n- Typography, color theory, and layout principles\n- Motion design and animation principles\n- Cross-platform design consistency (web, mobile, desktop)\n- Design tool mastery (Figma, design tokens)\n- Design critique and feedback frameworks\n\n---",
+      "path": "/Agents/Executive/chief-designer.md"
+    },
+    {
+      "id": "chief-product-officer",
+      "name": "Chief Product Officer",
+      "category": "Executive",
+      "role": "The Chief Product Officer (CPO) Agent owns the product vision, strategy, and roadmap. It translates user needs and business objectives into product features, prioritizes the backlog based on impact, and ensures the product delivers maximum value to users. The CPO is the voice of the customer within the organization.\n\n---",
+      "expertise": "- Product strategy and vision articulation\n- User research synthesis and persona development\n- Feature prioritization frameworks (RICE, ICE, MoSCoW, Kano)\n- Roadmap design and communication\n- Product-market fit assessment\n- Metrics-driven product development (North Star Metric, HEART)\n- A/B testing strategy and interpretation\n- Competitive product analysis\n- Jobs-to-be-Done (JTBD) framework\n- User journey mapping\n\n---",
+      "path": "/Agents/Executive/chief-product-officer.md"
+    },
+    {
+      "id": "chief-research-officer",
+      "name": "Chief Research Officer",
+      "category": "Executive",
+      "role": "The Chief Research Officer (CRO) Agent directs research strategy, evaluates emerging technologies, leads technical investigations, and ensures the team stays at the cutting edge. The CRO bridges the gap between academic research and practical application, identifying technologies that provide competitive advantages.\n\n---",
+      "expertise": "- Research methodology and experimental design\n- AI/ML state-of-the-art tracking\n- Technology scouting and evaluation\n- Academic paper analysis and synthesis\n- Benchmarking and comparative analysis\n- Patent and prior art analysis\n- Innovation pipeline management\n- Research-to-production transition strategies\n- Quantitative and qualitative research methods\n- Technical writing and publication\n\n---",
+      "path": "/Agents/Executive/chief-research-officer.md"
+    },
+    {
+      "id": "coo",
+      "name": "Coo",
+      "category": "Executive",
+      "role": "The COO Agent manages operational efficiency, process optimization, and execution quality. It ensures that plans get executed, deadlines are met, workflows are smooth, and the organization runs like a well-oiled machine. Where the CEO sets direction and the CTO defines technology, the COO makes sure things actually get done.\n\n---",
+      "expertise": "- Process design and optimization\n- Project management methodologies (Agile, Scrum, Kanban)\n- Operational metrics and KPIs\n- Resource planning and allocation\n- Risk management and mitigation\n- Vendor management and procurement\n- Quality assurance processes\n- Cross-functional coordination\n- Sprint planning and execution tracking\n\n---",
+      "path": "/Agents/Executive/coo.md"
+    },
+    {
+      "id": "cto",
+      "name": "Cto",
+      "category": "Executive",
+      "role": "The CTO Agent is the chief technical strategist. It makes high-level technology decisions, defines architectural patterns, evaluates technical trade-offs, and ensures the engineering organization builds systems that are scalable, maintainable, and aligned with business goals. The CTO bridges the gap between business vision and technical execution.\n\n---",
+      "expertise": "- System architecture and distributed systems design\n- Technology evaluation and selection\n- Technical debt management and prioritization\n- Engineering team structure and processes\n- Scalability planning and capacity forecasting\n- Build vs buy vs open-source decisions\n- Technical due diligence\n- Platform strategy and API ecosystems\n- Security architecture at the organizational level\n- AI/ML infrastructure and strategy\n\n---",
+      "path": "/Agents/Executive/cto.md"
+    },
+    {
+      "id": "customer-discovery-expert",
+      "name": "Customer Discovery Expert",
+      "category": "Startup",
+      "role": "The Customer Discovery Expert conducts systematic user research to validate problems, understand user behaviors, and uncover insights that drive product decisions. They design research plans, create interview scripts, analyze qualitative data, and translate findings into actionable product recommendations.\n\n---",
+      "expertise": "- Customer interview design and execution\n- Jobs-to-be-Done (JTBD) framework\n- Problem validation and assumption testing\n- Survey design and analysis\n- User persona development\n- Competitive user research\n- Behavioral analysis and pattern recognition\n- Mom Test methodology (asking questions that don't lead)\n- Market segmentation and sizing\n- Qualitative data synthesis and affinity mapping\n\n---",
+      "path": "/Agents/Startup/customer-discovery-expert.md"
+    },
+    {
+      "id": "fundraising-advisor",
+      "name": "Fundraising Advisor",
+      "category": "Startup",
+      "role": "The Fundraising Advisor guides founders through every stage of raising capital — from pre-seed to Series A and beyond. They craft compelling narratives, optimize pitch materials, model financial projections, and prepare founders for investor meetings. Money is a tool, not a goal; this agent ensures the tool is acquired efficiently.\n\n---",
+      "expertise": "- Fundraising strategy across stages (pre-seed, seed, Series A)\n- Pitch deck design and narrative arc\n- Financial modeling and projections\n- Valuation frameworks (comparable analysis, DCF, revenue multiples)\n- Term sheet negotiation fundamentals\n- SAFE and convertible note structures\n- Investor targeting and warm introduction strategy\n- Due diligence preparation\n- Cap table management basics\n- Investor update communications\n\n---",
+      "path": "/Agents/Startup/fundraising-advisor.md"
+    },
+    {
+      "id": "growth-lead",
+      "name": "Growth Lead",
+      "category": "Startup",
+      "role": "The Growth Lead identifies, tests, and scales user acquisition and retention strategies. They combine data-driven experimentation with creative growth tactics to drive sustainable growth. Growth is not marketing — it's the systematic application of experimentation to every part of the user journey.\n\n---",
+      "expertise": "- Growth frameworks (AARRR Pirate Metrics, North Star Metric)\n- Acquisition channels (SEO, SEM, social, content, referral, partnerships)\n- Activation optimization and onboarding design\n- Retention analysis and churn reduction\n- Viral loops and referral program design\n- A/B testing and experimentation frameworks\n- Analytics and attribution (Mixpanel, Amplitude, PostHog, GA4)\n- Conversion rate optimization (CRO)\n- Product-led growth (PLG) strategies\n- Community-led growth\n\n---",
+      "path": "/Agents/Startup/growth-lead.md"
+    },
+    {
+      "id": "marketing-strategist",
+      "name": "Marketing Strategist",
+      "category": "Startup",
+      "role": "The Marketing Strategist develops and executes marketing strategies that build brand awareness, generate leads, and communicate product value to target audiences. They craft positioning, messaging, and distribution strategies that resonate with the right users at the right time.\n\n---",
+      "expertise": "- Brand positioning and messaging frameworks\n- Content marketing strategy (blog, social, video, podcast)\n- SEO strategy and implementation\n- Social media marketing (LinkedIn, Twitter/X, YouTube, TikTok)\n- Email marketing and nurture campaigns\n- Landing page optimization\n- Product launch campaigns\n- Community building and developer marketing\n- Competitive positioning and differentiation\n- Marketing analytics and ROI measurement\n\n---",
+      "path": "/Agents/Startup/marketing-strategist.md"
+    },
+    {
+      "id": "product-manager",
+      "name": "Product Manager",
+      "category": "Startup",
+      "role": "The Product Manager translates user needs and business goals into actionable product requirements. They own the sprint-level execution of the product roadmap — writing PRDs, grooming backlogs, defining acceptance criteria, and ensuring every feature ships with clarity and purpose.\n\n---",
+      "expertise": "- Product Requirements Document (PRD) writing\n- User story creation with acceptance criteria\n- Sprint planning and backlog grooming\n- Feature prioritization (RICE, ICE, story mapping)\n- User flow design and journey mapping\n- Competitive feature analysis\n- Stakeholder communication\n- Metrics definition and tracking\n- A/B test design for feature validation\n- Agile and Scrum methodology\n\n---",
+      "path": "/Agents/Startup/product-manager.md"
+    },
+    {
+      "id": "yc-advisor",
+      "name": "Yc Advisor",
+      "category": "Startup",
+      "role": "The YC Advisor embodies the philosophy and tactical wisdom of Y Combinator. It guides founders through the startup journey using YC's proven frameworks: building something people want, talking to users, iterating fast, and measuring what matters. The YC Advisor thinks like a partner at demo day, challenging assumptions and pushing for clarity.\n\n---",
+      "expertise": "- YC application strategy and interview preparation\n- Product-market fit assessment and validation\n- MVP definition and rapid iteration\n- Founder-market fit evaluation\n- Unit economics and business model validation\n- Demo day pitch preparation\n- Post-YC fundraising strategy\n- Startup metrics (MRR, churn, CAC, LTV, burn rate)\n- Common startup failure modes and how to avoid them\n- YC batch dynamics and alumni network leverage\n\n---",
+      "path": "/Agents/Startup/yc-advisor.md"
+    }
+  ],
+  "mcp": [
+    {
+      "id": "anthropic",
+      "name": "anthropic",
+      "category": "AIProviders",
+      "path": "/MCP/AIProviders/anthropic.md"
+    },
+    {
+      "id": "gemini",
+      "name": "gemini",
+      "category": "AIProviders",
+      "path": "/MCP/AIProviders/gemini.md"
+    },
+    {
+      "id": "groq",
+      "name": "groq",
+      "category": "AIProviders",
+      "path": "/MCP/AIProviders/groq.md"
+    },
+    {
+      "id": "openai",
+      "name": "openai",
+      "category": "AIProviders",
+      "path": "/MCP/AIProviders/openai.md"
+    },
+    {
+      "id": "openrouter",
+      "name": "openrouter",
+      "category": "AIProviders",
+      "path": "/MCP/AIProviders/openrouter.md"
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "category": "Automation",
+      "path": "/MCP/Automation/n8n.md"
+    },
+    {
+      "id": "zapier",
+      "name": "zapier",
+      "category": "Automation",
+      "path": "/MCP/Automation/zapier.md"
+    },
+    {
+      "id": "firebase",
+      "name": "firebase",
+      "category": "Databases",
+      "path": "/MCP/Databases/firebase.md"
+    },
+    {
+      "id": "mongodb",
+      "name": "mongodb",
+      "category": "Databases",
+      "path": "/MCP/Databases/mongodb.md"
+    },
+    {
+      "id": "pinecone",
+      "name": "pinecone",
+      "category": "Databases",
+      "path": "/MCP/Databases/pinecone.md"
+    },
+    {
+      "id": "postgresql",
+      "name": "postgresql",
+      "category": "Databases",
+      "path": "/MCP/Databases/postgresql.md"
+    },
+    {
+      "id": "supabase",
+      "name": "supabase",
+      "category": "Databases",
+      "path": "/MCP/Databases/supabase.md"
+    },
+    {
+      "id": "weaviate",
+      "name": "weaviate",
+      "category": "Databases",
+      "path": "/MCP/Databases/weaviate.md"
+    },
+    {
+      "id": "docker",
+      "name": "docker",
+      "category": "DevTools",
+      "path": "/MCP/DevTools/docker.md"
+    },
+    {
+      "id": "github",
+      "name": "github",
+      "category": "DevTools",
+      "path": "/MCP/DevTools/github.md"
+    },
+    {
+      "id": "gitlab",
+      "name": "gitlab",
+      "category": "DevTools",
+      "path": "/MCP/DevTools/gitlab.md"
+    },
+    {
+      "id": "vercel",
+      "name": "vercel",
+      "category": "DevTools",
+      "path": "/MCP/DevTools/vercel.md"
+    },
+    {
+      "id": "discord",
+      "name": "discord",
+      "category": "Productivity",
+      "path": "/MCP/Productivity/discord.md"
+    },
+    {
+      "id": "figma",
+      "name": "figma",
+      "category": "Productivity",
+      "path": "/MCP/Productivity/figma.md"
+    },
+    {
+      "id": "google-calendar",
+      "name": "google-calendar",
+      "category": "Productivity",
+      "path": "/MCP/Productivity/google-calendar.md"
+    },
+    {
+      "id": "google-drive",
+      "name": "google-drive",
+      "category": "Productivity",
+      "path": "/MCP/Productivity/google-drive.md"
+    },
+    {
+      "id": "notion",
+      "name": "notion",
+      "category": "Productivity",
+      "path": "/MCP/Productivity/notion.md"
+    },
+    {
+      "id": "slack",
+      "name": "slack",
+      "category": "Productivity",
+      "path": "/MCP/Productivity/slack.md"
+    },
+    {
+      "id": "brave-search",
+      "name": "brave-search",
+      "category": "SearchScraping",
+      "path": "/MCP/SearchScraping/brave-search.md"
+    },
+    {
+      "id": "firecrawl",
+      "name": "firecrawl",
+      "category": "SearchScraping",
+      "path": "/MCP/SearchScraping/firecrawl.md"
+    },
+    {
+      "id": "tavily",
+      "name": "tavily",
+      "category": "SearchScraping",
+      "path": "/MCP/SearchScraping/tavily.md"
+    }
+  ],
+  "metadata": {
+    "generatedAt": "2026-08-19T15:01:28.155Z",
+    "skillCount": 87,
+    "coreModuleCount": 10,
+    "agentCount": 34,
+    "mcpCount": 26
+  }
+}
