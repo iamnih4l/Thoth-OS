@@ -541,6 +541,18 @@
       "status": "Active"
     },
     {
+      "id": "frontend design engineering",
+      "name": "Frontend Design Engineering",
+      "description": "Comprehensive frontend design, architecture, and interaction skill enforcing impeccable craft, anti-slop visuals, and purposeful motion. Use this skill when generating UI, landing pages, web apps, dashboards, or performing a frontend redesign.",
+      "category": "Frontend",
+      "path": "/Skills/Frontend/design-engineering/SKILL.md",
+      "purpose": "Elevate frontend code from \"functional but generic\" to \"impeccably crafted and deeply intentional\". This skill applies trained design-engineering instincts to typography, layout, animation, and interaction. It ensures the UI is responsive, accessible, performs well, and rejects templated \"AI slop\" defaults.",
+      "workflow": "1. **Understand the Product (Brief Inference)**\n   Determine the page kind (landing, portfolio, redesign, editorial), the audience, and the vibe.\n2. **Define the Experience (Design Modes & Dials)**\n   - Mode: Persuade, Operate, Read, or Experience.\n   - Set Dials (1-10): `DESIGN_VARIANCE`, `MOTION_INTENSITY`, `VISUAL_DENSITY`.\n3. **Define Interface Architecture (Design System Map)**\n   Pick the right stack and foundation. Do not reinvent standard components if an official system (e.g., Radix, shadcn, Fluent) is a better fit.\n4. **Build the Visual System (Layout & Typography Discipline)**\n   - Apply strict layout rules (e.g., Anti-Center Bias, Bento Grid rhythms).\n   - Enforce typography constraints (e.g., Serif discipline, Display pairings).\n5. **Add Interaction (Motion Framework)**\n   - Only animate with purpose (spatial consistency, state indication, feedback).\n   - Use custom `ease-out` curves for UI, never `ease-in`.\n   - Use spring physics for interruptible interactions.\n6. **Validate & Polish (Quality Checks)**\n   Review contrast, responsiveness, touch targets, and CTA text wraps.",
+      "inputFormat": null,
+      "outputFormat": null,
+      "status": "Active"
+    },
+    {
       "id": "next.js",
       "name": "Next.js",
       "description": "Build production Next.js applications with SSR, SSG, ISR, API routes, and the App Router for optimal performance and SEO.",
@@ -1570,8 +1582,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-08-19T15:01:28.155Z",
-    "skillCount": 87,
+    "generatedAt": "2026-09-12T13:28:25.095Z",
+    "skillCount": 88,
     "coreModuleCount": 10,
     "agentCount": 34,
     "mcpCount": 26

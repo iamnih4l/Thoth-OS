@@ -90,7 +90,7 @@ thoth-os/
 ├── MCP/           # Integrations with external tools and API providers
 ├── Projects/      # Active workspace projects managed by the OS
 ├── Rules/         # Global constraints (e.g., AGENTS.md for coding standards)
-├── Skills/        # Reusable capabilities (e.g., architecture, debugging, clean-code)
+├── Skills/        # Reusable capabilities (e.g., design-engineering, architecture, debugging)
 ├── Templates/     # Markdown templates for structured outputs (PRDs, ADRs)
 └── Workflows/     # Multi-agent execution pipelines (e.g., startup.md, bug-fix.md)
 ```
