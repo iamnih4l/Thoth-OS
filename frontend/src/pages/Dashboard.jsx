@@ -120,7 +120,49 @@ export default function Dashboard() {
         </div>
       </motion.section>
 
+      <BrowserSyncSection />
+
     </motion.div>
+  );
+}
+
+function BrowserSyncSection() {
+  return (
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8 }}
+      className="mt-16"
+    >
+      <h2 className="text-2xl font-semibold mb-8 flex items-center text-white drop-shadow-md">
+        <CheckCircle2 className="w-6 h-6 mr-3 text-purple-500" />
+        New Capability: Browser Sync
+      </h2>
+      
+      <div className="bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-10 overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.4)] relative">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-[80px] pointer-events-none"></div>
+        <div className="mb-8">
+          <p className="text-gray-300 text-lg mb-2">Sync real web applications directly into Thoth.</p>
+          <div className="inline-block bg-white/10 border border-white/20 rounded-lg px-4 py-2 font-mono text-sm text-purple-300">
+            <span className="text-gray-500">Trigger:</span> sync &lt;source&gt; ...
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center gap-4 overflow-x-auto min-w-full pb-4 font-mono text-sm">
+          <FlowStep title="Browser Session" subtitle="Existing Login" active delay={0} />
+          <FlowArrow delay={0.2} />
+          <FlowStep title="Web Application" subtitle="e.g. Discord" active delay={0.4} />
+          <FlowArrow delay={0.6} />
+          <FlowStep title="Page Content" subtitle="Real Data" active delay={0.8} />
+          <FlowArrow delay={1.0} />
+          <FlowStep title="Analysis" subtitle="Grounded Extraction" active delay={1.2} />
+          <FlowArrow delay={1.4} />
+          <FlowStep title="Insights" subtitle="Important + Actions" highlight delay={1.6} />
+        </div>
+
+        <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10 text-gray-400 font-mono text-sm">
+          <span className="text-purple-400">Example:</span> sync Discord — analyze the latest HackKP discussion
+        </div>
+      </div>
+    </motion.section>
   );
 }
 

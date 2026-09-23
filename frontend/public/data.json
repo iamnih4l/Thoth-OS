@@ -973,6 +973,18 @@
       "status": "Active"
     },
     {
+      "id": "browser sync",
+      "name": "Browser Sync",
+      "description": "Use the browser to access a user-requested web application or page, read real content from the current browser session, and return grounded analysis of that content.",
+      "category": "Utilities",
+      "path": "/Skills/Utilities/browser-sync/SKILL.md",
+      "purpose": "Use the browser to access a user-requested web application or page, read real content from the current browser session, and return grounded analysis of that content. This is an information retrieval skill that uses the user's existing authenticated browser sessions to extract and analyze information without fabricating data.",
+      "workflow": "1. **Determine target** - Identify application/site, location (page/channel/thread/chat/document), requested scope, and requested analysis.\n2. **Open/reuse browser** - Prefer an already-open browser session. If not open, navigate to it.\n3. **Authentication** - Rely on the existing authenticated session. Never ask for credentials or simulate access. If authentication blocks access, return a failure stating authentication is required.\n4. **Navigate** - Navigate to the location requested by the user.\n5. **Read & Expand** - Read the actual content on the page. Scroll, expand threads, or load older/newer messages if necessary to fulfill the requested scope.\n6. **Analyze** - Analyze the retrieved content. Do not invent content or summarize based on assumptions. The browser content is the single source of truth.",
+      "inputFormat": "```yaml\ntask: 'sync <application/site> <instruction>'\n```",
+      "outputFormat": "```text\nSYNC COMPLETE\n\nSOURCE\n<Application> → <location>\n\nSUMMARY\n<brief explanation>\n\nIMPORTANT\n- ...\n\nDECISIONS\n- ...\n\nACTION ITEMS\n- ...\n\nDEADLINES\n- ...\n\nOPEN QUESTIONS\n- ...\n\nWHAT YOU SHOULD KNOW\n- ...\n\nSOURCE STATUS\nFully analyzed / Partially analyzed\n\n<If partial, explain exactly what could not be retrieved.>\n```\n*(Omit sections that have no content, do not force empty sections)*",
+      "status": "Active"
+    },
+    {
       "id": "csv processing",
       "name": "CSV Processing",
       "description": "Parse, transform, validate, and analyze CSV data including handling encoding, delimiters, and large file processing.",
@@ -1594,8 +1606,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-09-19T17:03:20.587Z",
-    "skillCount": 89,
+    "generatedAt": "2026-09-23T18:37:35.671Z",
+    "skillCount": 90,
     "coreModuleCount": 10,
     "agentCount": 34,
     "mcpCount": 26

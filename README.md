@@ -136,6 +136,7 @@ Simply type one of the core commands in your chat interface:
 
 * `/startup` - Initializes the full startup workflow (Ideation → Solution Design → MVP Build).
 * `/brag` - Analyzes your current project and generates a cinematic launch video using Hyperframes (see [Docs/brag.md](Docs/brag.md)).
+* `sync <application/site> <instruction>` - Uses your existing browser session to retrieve and analyze real web content (e.g., `sync Discord — analyze the HackKP thread`).
 * `/help` - Displays the system manual and available commands.
 
 ## 🧑‍💻 Public Interface & Usage
